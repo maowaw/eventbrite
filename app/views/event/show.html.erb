@@ -1,0 +1,28 @@
+
+<p>
+
+<div class = "container d-flex justify-content-center"">
+
+	<div class="card" style="width: 18rem;">
+
+<!-- Affichage du event -->		
+	  <div class="card-body bg-warning">
+	    <h2 class=" text-center "> <br/><%= @event.title %> </h2>
+	    <p class="card-text"> <br/> <br/> <%= @event.description %> </p>
+	  </div>
+	  
+		<ul class="list-group list-group-flush">
+
+	    <li class="list-group-item text-center"> <b> How much? </b> <br/> <%= @event.price %> euros</li>
+	 		<li class="list-group-item text-center"> <b> When? </b> <br/> <%= @event.start_date.strftime("%d/%m/%Y at %H:%M") %></li>
+	 		<li class="list-group-item text-center"> <b> How long? </b> <br/> <%= @event.duration %> minutes </li>
+	 		<li class="list-group-item text-center"> <b> Where? </b> <br/> <%= @event.location %></li>
+	  	<li class="card-footer list-group-item"> <small class="text-muted">created the : <%= @event.created_at%></small></li>
+
+	  </ul>
+
+
+	</div>
+
+</div>
+

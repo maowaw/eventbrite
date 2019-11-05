@@ -30,28 +30,25 @@
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" <%= link_to "Créer un event", new_event_path %> </a>
+        <a class="nav-link" <%= link_to "Create an event", new_event_path %> </a>
       </li>
 
     </ul>
   </div> 
 
   
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="cette barre ne sert à R" aria-label="Search">
-    </form>
 
 
   <% if session["user_id"] != nil %>
 
   <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Mon profil
+        My profile
       </button>
 
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <button class="dropdown-item"> <%= link_to "Mon profil", user_path %> </button>
-        <button class="dropdown-item"> <%=link_to "Se déconnecter", destroy_user_session_path(session.id), method: :delete %> </button>
+        <button class="dropdown-item"> <%= link_to "My profile", user_path %> </button>
+        <button class="dropdown-item"> <%=link_to "Sign out", destroy_user_session_path, method: :delete %> </button>
       </div>
       </div>
 
@@ -60,12 +57,12 @@
 
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Qui es-tu?
+        Who are you?
       </button>
 
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <button class="dropdown-item"> <%=link_to "S'inscrire", new_registration_path %> </button>
-        <button class="dropdown-item"> <%= link_to "Se connecter", new_user_session_path %> </button>
+        <button class="dropdown-item"> <%=link_to "Sign up", new_user_registration_path %> </button>
+        <button class="dropdown-item"> <%= link_to "Log in", new_user_session_path %> </button>
       </div>
       </div>
 
