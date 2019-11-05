@@ -3,9 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-gem 'bcrypt'
+gem 'devise' #pour les mailers, login etc
 
-gem 'faker'
+gem 'bcrypt' #pour le password crypté
+
+gem 'faker' #pour les fake data
+
+gem 'dotenv-rails' #pour la clef cachée (mise en réseau)
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

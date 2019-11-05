@@ -5,8 +5,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.text :description
 
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      # t.string :email,              null: false, default: ""
+      # t.string :encrypted_password, null: false, default: ""
 
       t.timestamps
     end

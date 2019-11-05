@@ -1,6 +1,11 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+#informe de l'URL de l'app :
+  config.action_mailer.default_url_options = { :host => 'YOURAPPNAME.herokuapp.com' }
+
+
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
