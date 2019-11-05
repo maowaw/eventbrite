@@ -10,7 +10,7 @@
       
     <div class="jumbotron" style=" background-color: #4c4c4d;">
     
-      <h1 class="welcome"> Find any event around you</h1> 
+      <h1> Find the best events in town, downtown, uptown, suburbs, and so much more</h1> 
       <h2 style=" color:white;" >on this website !</h2>
       <div class="d-flex justify-content-end">
         <a  class="btn btn-outline-success my-2 my-sm-0" <%= link_to "Create an event", new_event_path %></a>
@@ -27,7 +27,7 @@
    <% Event.all.reverse.each do |event| %>
    <div class="card m-4" style="width: 18rem;">
     <div class="card-body">
-      <h5  style="font-size: 3em" class=" card-title"><%= event.title %></h5>
+      <h3  style="font-size: 3em" class=" card-title"><%= event.title %></h3>
        <p style="font-weight: italic; font-size: 2em;" class=" text-center card-text"><%= event.description %></p>
        <p style="font-weight: italic; font-size: 2em;" class=" text-center card-text"><%= event.price %>€</p>
 

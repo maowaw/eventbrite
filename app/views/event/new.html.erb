@@ -4,6 +4,9 @@
 
   <div style="margin: 5%;" class = "d-flex justify-content-center" >
 
+
+
+
     <%= form_tag url_for(action: 'create'), method: "post" do %>
 
       <%= label_tag 'Title' %><br />
@@ -18,11 +21,11 @@
       <%= text_field_tag :price %>
       <br /> <br />
             
-      <%= label_tag 'Date of the event' %><br />
-      <%= text_field :start_date, "data-provide" => 'datepicker' %>
+      <%= label_tag 'Date of the event (YYYY-MM-JJ)' %><br />
+      <%= text_field_tag 'start_date'%>
       <br /> <br /> 
       
-      <%= label_tag 'Duration' %><br />
+      <%= label_tag 'Duration (minutes)' %><br />
       <%= text_field_tag :duration %>
       <br /><br />
 

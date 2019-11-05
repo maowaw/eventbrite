@@ -17,10 +17,10 @@ class User < ApplicationRecord
 
 #validations
 	validates :email, presence: true, uniqueness: true
-	validates :description, presence: true, length: { minimum: 1, maximum: 1000}
-	validates :first_name, presence: true
-	validates :last_name, presence: true
-	validates :password, presence: true, length: { minimum: 1}
+	#validates :description, length: { minimum: 1, maximum: 1000}
+	#validates :first_name, presence: true
+	#validates :last_name, presence: true
+	validates :password, length: { minimum: 1} , presence: true
 
   
 end

@@ -1,7 +1,7 @@
 
 <p>
 
-<div class = "container d-flex justify-content-center"">
+<div class = "container d-flex justify-content-center">
 
 	<div class="card" style="width: 18rem;">
 
@@ -17,7 +17,7 @@
 	 		<li class="list-group-item text-center"> <b> When? </b> <br/> <%= @event.start_date.strftime("%d/%m/%Y at %H:%M") %></li>
 	 		<li class="list-group-item text-center"> <b> How long? </b> <br/> <%= @event.duration %> minutes </li>
 	 		<li class="list-group-item text-center"> <b> Where? </b> <br/> <%= @event.location %></li>
-	  	<li class="card-footer list-group-item"> <small class="text-muted">created the : <%= @event.created_at%></small></li>
+	  	<li class="card-footer list-group-item"> <small class="text-muted">created the : <%= @event.created_at%><br/> by: <%= @event.admin.first_name %></small></li>
 
 	  </ul>
 

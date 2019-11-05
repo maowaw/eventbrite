@@ -2,11 +2,11 @@
 
 class AddDeviseToUsers < ActiveRecord::Migration[5.2]
 
-  def self change
+  def change
     change_table :users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      #t.string :email,              null: false, default: ""
+      #t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token
@@ -38,8 +38,8 @@ class AddDeviseToUsers < ActiveRecord::Migration[5.2]
       # t.timestamps null: false
     end
 
-    #je l'enlève :  add_index :users, :email,                unique: true
-    #je l'enlève aussi : add_index :users, :reset_password_token, unique: true
+    add_index :users, :email,                unique: true
+    add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end

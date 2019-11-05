@@ -1,2 +1,23 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<h3>Welcome on your profile <%= @current_user.first_name %>  <% @current_user.last_name %> </h2> <br/>  <br/> 
+
+<div class = "container d-flex justify-content-center"">
+
+	<div class="card" style="width: 18rem;">
+<div>
+  <h2 class="font-weight-light">My email : </h2>
+  <p>
+    <%=@current_user.email%> <br/>
+  </p>
+  <h2 class="font-weight-light">Description : </h2>
+    <%=@current_user.description%> <br/>
+
+  <h2 class="font-weight-light">Frist name: </h2>
+    <%=@current_user.first_name%> <br/>
+
+  <h2 class="font-weight-light">Last name : </h2>
+    <%=@current_user.last_name%> <br/>
+
+  <h2 class="font-weight-light">Member since : </h2>
+    <%=@current_user.created_at%> <br/>
+
+
