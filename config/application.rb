@@ -8,6 +8,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+  #pour permettre le push sur heroku
+config.assets.initialize_on_precompile = false
+
 module Eventbrite
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -19,7 +22,6 @@ module Eventbrite
     # the framework and any gems in your application.
   end
 
-  #pour permettre le push sur heroku
-config.assets.initialize_on_precompile = false
+
 end
 
