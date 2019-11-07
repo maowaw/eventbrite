@@ -1,0 +1,18 @@
+<%= form_tag attendance_index_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: 26546 euros </span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Event participation"
+          data-amount=@attendance.event.price
+          data-locale="auto"></script>
+<% end %>

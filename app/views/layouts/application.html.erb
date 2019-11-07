@@ -23,60 +23,61 @@
 
 <!-- Barre de navigation -->
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
 
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" <%= link_to "Create an event", new_event_path %> </a>
-      </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
 
-    </ul>
-  </div> 
+          <li class="nav-item">
+            <a class="nav-link" <%= link_to "Create an event", new_event_path %> </a>
+          </li>
+        </ul>
+      </div> 
 
+      <% if user_signed_in? %>
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My profile
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <button class="dropdown-item"> <%= link_to "My profile", user_path(current_user.id) %> </button>
+              <button class="dropdown-item"> <%=link_to "Sign out", destroy_user_session_path, method: :delete %> <span class="sr-only">(current)</span> </button>
+            </div>
+          </div>
+
+      <% else %>
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Who are you?
+          </button>
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button class="dropdown-item"> <%=link_to "Sign up", new_user_registration_path %> </button>
+            <button class="dropdown-item"> <%= link_to "Log in", new_user_session_path %> </button>
+          </div>
+        </div>
+
+    <% end %>
+    </nav>
+
+      <!-- Annonce de succès et échecs -->
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>">
+            <a href="#" data-dismiss="alert" class="close">×</a>
+            <%= value %>
+        </div>
+    <% end %>
+   
   
-
-
-  <% if user_signed_in? %>
-
-  <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        My profile
-      </button>
-
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <button class="dropdown-item"> <%= link_to "My profile", user_path(current_user.id) %> </button>
-        <button class="dropdown-item"> <%=link_to "Sign out", destroy_user_session_path, method: :delete %> <span class="sr-only">(current)</span> </button>
-      </div>
-      </div>
-
-
-  <% else %>
-
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Who are you?
-      </button>
-
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <button class="dropdown-item"> <%=link_to "Sign up", new_user_registration_path %> </button>
-        <button class="dropdown-item"> <%= link_to "Log in", new_user_session_path %> </button>
-      </div>
-      </div>
-
-
-  <% end %>
-
-
-
-  </nav>
-
-
-
   </head>
+
+
 
   <body>
     <%= yield %>

@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'stripe' #pour le paiement en ligne
+
 gem 'devise' #pour les mailers, login etc
 
 gem 'bcrypt' #pour le password crypté
