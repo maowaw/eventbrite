@@ -34,7 +34,7 @@ class EventController < ApplicationController
 			price: params[:price],
 			location: params[:location],
 			)
-		@event.creator_id = @current_user.id
+		@event.admin_id = @current_user.id
 
 		#si les bons paramètres sont là, on enregistre l'event
 		if @event.save
@@ -59,25 +59,29 @@ class EventController < ApplicationController
 		end
 	end
 
-#Pour le paiement en ligne, méthodes suscribe et unsuscribe
-	def subscribe
+	def edit
+		@event = Event.find(params["id"])
+	end
 
-	  @event = Event.find(params[:event])
-	  @current_user = current_user
-	  @event.attendees << @current_user #on rajoute le current user à la liste des attendees
+# #Pour le paiement en ligne, méthodes suscribe et unsuscribe
+# 	def subscribe
 
-	  flash[:success] = "Participation validated!"
-	  redirect_to user_path(@current_user.id)
-	  end
+# 	  @event = Event.find(params[:event])
+# 	  @current_user = current_user
+# 	  @event.attendees << @current_user #on rajoute le current user à la liste des attendees
 
-	  def unsubscribe
-	    @event = Event.find(params[:event])
-	    @current_array = []
-	    @current_array << current_user
-	    @event.attendees -= @current_array #on enlève le user des attendees
-	    flash[:success] = "You are no longer participating to this event"
-	    redirect_to user_path(@current_user.id)
-	  end
+# 	  flash[:success] = "Participation validated!"
+# 	  redirect_to user_path(@current_user.id)
+# 	  end
+
+# 	  def unsubscribe
+# 	    @event = Event.find(params[:event])
+# 	    @current_array = []
+# 	    @current_array << current_user
+# 	    @event.attendees -= @current_array #on enlève le user des attendees
+# 	    flash[:success] = "You are no longer participating to this event"
+# 	    redirect_to user_path(@current_user.id)
+# 	  end
 
 
 #Pas encore vu?

@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   devise_for :users
 
 #routes pour les controllers event et user
-	resources :event
+	resources :event do 
+		resources :avatars, only: [:create]
+	end
+
 	resources :user
 
 #route pour voir les participations (et donc le paiement)

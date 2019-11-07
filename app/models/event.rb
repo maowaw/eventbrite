@@ -1,9 +1,15 @@
 class Event < ApplicationRecord
 
+#LIENS AVEC LES AUTRES MODELS----------------------------
+
 	has_many :attendances
 	has_many :users, through: :attendances
 
 	belongs_to :admin, class_name: "User"
+
+	has_one_attached :avatar
+
+#VALIDATIONS---------------------------------------------	
 
 	validates :start_date, presence: true
 	

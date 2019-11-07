@@ -37,29 +37,30 @@
         </ul>
       </div> 
 
+
+      <div class="dropdown">
+
       <% if user_signed_in? %>
 
-        <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               My profile
             </button>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <button class="dropdown-item"> <%= link_to "My profile", user_path(current_user.id) %> </button>
-              <button class="dropdown-item"> <%=link_to "Sign out", destroy_user_session_path, method: :delete %> <span class="sr-only">(current)</span> </button>
+              <a class="dropdown-item" <%= link_to "My profile", user_path(current_user.id) %> </a>
+              <a class="dropdown-item"> <%=link_to "Sign out", destroy_user_session_path, method: :delete %> <span class="sr-only">(current)</span> </a>
             </div>
           </div>
 
       <% else %>
 
-        <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Who are you?
           </button>
 
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <button class="dropdown-item"> <%=link_to "Sign up", new_user_registration_path %> </button>
-            <button class="dropdown-item"> <%= link_to "Log in", new_user_session_path %> </button>
+            <a class="dropdown-item"> <%=link_to "Sign up", new_user_registration_path %> </a>
+            <a class="dropdown-item"> <%= link_to "Log in", new_user_session_path %> </a>
           </div>
         </div>
 

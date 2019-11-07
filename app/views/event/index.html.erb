@@ -3,46 +3,89 @@
   <head>
     <title>thpeventbrite</title>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+
   </head>
   
   
- <header>
+  <header>
       
     <div class="jumbotron" style=" background-color: #4c4c4d;">
-    
       <h1> Find the best events in town, downtown, uptown, suburbs, and so much more</h1> 
-      <h2 style=" color:white;" >on this website !</h2>
+      <h2>on this website !</h2>
       <div class="d-flex justify-content-end">
         <a  class="btn btn-outline-success my-2 my-sm-0" <%= link_to "Create an event", new_event_path %></a>
       </div>
+    
     </div>
-
- </header>
-
+  </header>
 
   <body>
+    <div class="container">
+      <%if current_user != nil %>
+        <div style="" class="text-center d-flex flex-wrap justify-content-around mx-4">
+          <% Event.all.reverse.each do |event| %>
+            <div class="card m-4" style="width: 18rem;">
+              <div class="card-body">
+                <h3  style="font-size: 3em" class=" card-title"><%= event.title %></h3>
+                <p style="font-weight: italic; font-size: 2em;" class=" text-center card-text"><%= event.description %></p>
+                <p style="font-weight: italic; font-size: 2em;" class=" text-center card-text"><%= event.price %>€</p>
+
+                <a  style="font-size: 2em;font-family: 'Reenie Beanie';" href="<%= event_path(event.id) %>" class="btn btn-warning">Discover event</a>
+              
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>    
+  </body>
 
 
-  <div style="" class="text-center d-flex flex-wrap justify-content-around mx-4">
-   <% Event.all.reverse.each do |event| %>
-   <div class="card m-4" style="width: 18rem;">
-    <div class="card-body">
-      <h3  style="font-size: 3em" class=" card-title"><%= event.title %></h3>
-       <p style="font-weight: italic; font-size: 2em;" class=" text-center card-text"><%= event.description %></p>
-       <p style="font-weight: italic; font-size: 2em;" class=" text-center card-text"><%= event.price %>€</p>
-
-        <a  style="font-size: 2em;font-family: 'Reenie Beanie';" href="<%= event_path(event.id) %>" class="btn btn-warning">Discover event</a>
 
 
+
+<!-- /.row -->
+
+  <hr>
+
+    <!-- Call to Action Section -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+      </div>
+      <div class="col-md-4">
+        <a class="btn btn-lg btn-secondary btn-block" href="#">Call to Action</a>
+      </div>
     </div>
-  </div>
 
-   <% end %>
   </div>
+  <!-- /.container -->
 
-  		 
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Eventbrite maowaw 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+       
 
 
     
     </body>
-    </html>
+  </html>
