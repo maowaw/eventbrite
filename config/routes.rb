@@ -9,11 +9,13 @@ Rails.application.routes.draw do
 #routes pour les controllers event et user
 	resources :event do 
 		resources :avatars, only: [:create]
+
+	#route pour voir les participations (et donc le paiement)
+		resources :attendance
 	end
 
-	resources :user
+	resources :user 
 
-#route pour voir les participations (et donc le paiement)
-	resources :attendance
+
 
 end

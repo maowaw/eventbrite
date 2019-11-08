@@ -15,8 +15,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 
 #Renseigne sur le chemin à suivre pour chopper les css et js
-# Rails.application.config.assets.paths << Rails.root.join("lib", "assets", "stylesheets")
-# Rails.application.config.assets.paths << Rails.root.join("lib", "assets", "javascripts")
+Rails.application.config.assets.paths << Rails.root.join("lib", "assets", "stylesheets")
+Rails.application.config.assets.paths << Rails.root.join("lib", "assets", "javascripts")
 
 Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "stylesheets")
 Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "javascripts")

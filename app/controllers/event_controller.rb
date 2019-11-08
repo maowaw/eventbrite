@@ -15,7 +15,7 @@ class EventController < ApplicationController
   	#on ne montre les events qu'à ceux qui sont connectés :
   	if user_signed_in?
 			@event = Event.find(params[:id])
-			@attending_list = @event.users.ids #liste des participants
+			@attending_list = @event.attendances #liste des participants
 
 		#ceux qui ne sont pas connectés sont renvoyés à la page login
 		else

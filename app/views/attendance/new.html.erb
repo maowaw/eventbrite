@@ -1,18 +1,49 @@
-<%= form_tag attendance_index_path do %>
-  <article>
+<!----------------- Message d'erreur si erreur il y a    --------> 
     <% if flash[:error].present? %>
       <div id="error_explanation">
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <span>Amount: 26546 euros </span>
-    </label>
-  </article>
+
+  
+<!------------------ Formulaire de paiement ------------------------->
+<div class="card mb-4 shadow-sm d-flex"> <center>
+  <%= form_tag event_attendance_index_path do %>
+    <article> 
+
+<!-------------------- PARTIIPATION A UN EVENEMENT : PAIEMENT ------------>
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">You are about to pay</h4>
+      </div>
+
+
+
+      <div class="card-body">
+        <h2 class="card-title pricing-card-title"> 
+            <label class="amount">
+
+              <!-- Annonce du prix -->
+              <span><%= @event.price %> </span>
+            </label>
+            <small class="text-muted">euros</small>
+        </h2>
+            
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>For the following event : </li>
+            <li> <b> <%= @event.title %> </b> </li>
+            <li> <%= @event.description %> </li>
+            <li> created by <b><%= @event.admin.first_name %></b></li>
+          </ul>
+        </div>
+      </article> 
+    
+<!---------------------- Bouton "pay with card"    -->
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Event participation"
-          data-amount=@attendance.event.price
+          data-amount=@event.price
           data-locale="auto"></script>
-<% end %>
+  <% end %>
+  
+</div> </center>

@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2019_11_07_144750) do
 
   create_table "attendances", force: :cascade do |t|
     t.string "stripe_customer_id"
+    t.integer "amount"
+    t.string "currency"
+    t.string "description"
     t.bigint "user_id"
     t.bigint "event_id"
     t.datetime "created_at", null: false

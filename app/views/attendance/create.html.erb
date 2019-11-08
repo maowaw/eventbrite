@@ -1,12 +1,19 @@
-<h2>Thanks, you paid <strong> 4488545 euros </strong>!</h2>
+<center>
+	<h2>Congrats <% current_user.first_name%> you paid  <%= @event.price %> euros to participate to <strong><%= @event.title%> </strong> !</h2>
 
+
+
+
+<!--------------- Boutons de sortie/redirection -->
 <div class = "container fluid d-flex justify-content-around flex-wrap">
-<!-- Boutons de sortie/redirection -->
 
 
-			<a class="btn btn-warning"<%= link_to 'Go back to the main page',event_index_path %> <br/> </a> 
+	<a class="btn btn-warning"<%= link_to 'Go back to the main page',event_index_path %> <br/> </a> 
 	  	
 </div>
+
+</center>
+
 
 
 

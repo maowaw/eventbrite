@@ -1,23 +1,51 @@
-<h3>Welcome on your profile <%= @current_user.first_name %>  <% @current_user.last_name %> </h2> <br/>  <br/> 
+<h3>Welcome on your profile <%= @current_user.first_name %>  <% @current_user.last_name %> </h3> <br/>  <br/> 
 
 <div class = "container d-flex justify-content-center"">
+	<div class="card" style="width: 35rem;">
 
-	<div class="card" style="width: 18rem;">
-<div>
-  <h2 class="font-weight-light">My email : </h2>
-  <p>
-    <%=@current_user.email%> <br/>
-  </p>
-  <h2 class="font-weight-light">Description : </h2>
-    <%=@current_user.description%> <br/>
+    <h2 class="font-weight-light">My email : </h2>
+    <p>
+      <%=@current_user.email%> <br/>
+    </p>
+    <h2 class="font-weight-light">Description : </h2>
+      <%=@current_user.description%> <br/>
 
-  <h2 class="font-weight-light">Frist name: </h2>
-    <%=@current_user.first_name%> <br/>
+    <h2 class="font-weight-light">Frist name: </h2>
+      <%=@current_user.first_name%> <br/>
 
-  <h2 class="font-weight-light">Last name : </h2>
-    <%=@current_user.last_name%> <br/>
+    <h2 class="font-weight-light">Last name : </h2>
+      <%=@current_user.last_name%> <br/>
 
-  <h2 class="font-weight-light">Member since : </h2>
-    <%=@current_user.created_at%> <br/>
+    <h2 class="font-weight-light">Member since : </h2>
+      <%=@current_user.created_at%> <br/>
+
+<!-- Conditions, si il attend un evenement on les affiche, sinon on met No event -->
+    <h2 class="font-weight-light"> Future events : </h2>    
+      <% if Attendance.all.find_by(user_id: @current_user.id) != nil %>
+
+        <%= Attendance.all.where(user_id: @current_user.id).each do |attendance|%> <br/>
+          <p><%= attendance.event.title %></p>
+        <% end %>
+
+      <% else %>
+        <p> No future event </p>
+      <% end %> 
+
+
+<!-- Conditions, si il a créé des évenements on les affiche, sinon on met No event -->
+    <h2 class="font-weight-light"> Events created : </h2>
+    <% if Event.all.find_by(admin_id: @current_user.id) != nil %>
+
+      <% Event.all.where(admin_id: @current_user.id).each do |event| %>
+        <p> <%= event.title %> </p>
+      <% end %>
+
+    <% else %>
+      <p> No event created </p>
+    <% end %> 
+
+  </div>
+</div>
+
 
 

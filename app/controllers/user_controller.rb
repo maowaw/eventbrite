@@ -8,9 +8,12 @@ class UserController < ApplicationController
  		@current_user = @user
   	
 #on définit les évenements créés
-  	@created_events = Event.where(admin_id: @user.id)
-
     @events = Event.all
+  	@created_events = @events.where(admin_id: @user.id)
+
+    @attendances = Attendance.all
+
+    
 
     #Pas encore vu?
     # events_aging(@events)

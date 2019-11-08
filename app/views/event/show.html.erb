@@ -43,8 +43,8 @@
 <!-----------------------Voir les invités ----------------------->
 				<li class="list-group-item text-center">
 					  <b>Participants</b>
-					  <% @event.attendances.each do |attendee| %></p>
-					  	<p><%= attendee.user.first_name %></p>
+					  <% @event.attendances.each do |attendance| %></p>
+					  	<p><%= attendance.user.first_name %></p>
 					  <% end %>
 				</li>
 
@@ -52,9 +52,13 @@
 <!--------- (si on est pas déja sur la liste, pas admin et que la date n'est pas passée) -->
 			  <li class="list-group-item text-center">
 					  <div class="card-body">
-					    <%if !(@attending_list.include?(@event)) && current_user != @event.admin && @event.start_date > Time.now %>
-					     <%= link_to "Subscribe !", new_attendance_path, class: "btn btn-outline-success" %>
-					    <% end %>
+					  	<%=  %> 
+					    	<% if @event.attendances.find_by(user_id: current_user.id) == nil && (current_user != @event.admin) && (@event.start_date > Time.now) %>
+					     		<%= link_to "Subscribe !", new_event_attendance_path(@event), class: "btn btn-outline-success" %>
+					     	<% else %>
+					     		<p> It's your event ! </p>
+					    	<% end %>
+				  		
 				  	</div>
 			  </li>
 
@@ -75,7 +79,7 @@
 
 			<a class="btn btn-danger" <%= link_to 'Delete the event', event_path(@event), method: 'delete' %></a> <br/>
 
-		  <a class="btn btn-outline-secondary" <%= link_to "See my guests", attendance_index_path %> </a><br/>
+
 
 		  
 		<% end %>
